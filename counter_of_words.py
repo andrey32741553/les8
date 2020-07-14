@@ -44,5 +44,7 @@ def made_by_counter(d_list):
 
 
 def made_by_re_counter(d_list):
-    cnt = Counter(x for x in re.findall(r'[А-я\']{6,}', str(d_list).lower()))
+    cnt_rus = Counter(x for x in re.findall(r'[А-я\']{6,}', str(d_list).lower()))
+    cnt_eng = Counter(x for x in re.findall(r'[A-z\']{6,}', str(d_list).lower()))
+    cnt = cnt_rus + cnt_eng
     print(cnt.most_common(10))
